@@ -1,35 +1,38 @@
+// 1. Get form elements and input elements
 const form = document.querySelector('#my-form');
-//Get element
+// Get element
 const firstNameInput = form.querySelector('#first-name');
 const lastNameInput = form.querySelector('#last-name');
 const phoneInput = form.querySelector('#phone');
 const genderInput = form.querySelector('#gender');
 const enquiryInput = form.querySelector('#enquiry');
 
-
+// 2. Define form validation function
 function Validate()
 {
     
+    // 3. Get input values and trim whitespace
     const firstNameValue = firstNameInput.value.trim();
     const lastNameValue = lastNameInput.value.trim();
     const phoneValue = phoneInput.value.trim();
     const genderValue = genderInput.value;
     const enquiryValue = enquiryInput.value.trim();
 
-   
+    // 4. Define regular expressions
     const nameRegex = /^[a-zA-Z]+$/; // Only accept letters
     const phoneRegex = /^\d+$/; // Only accept numbers
     const genderRegex = /^(Male|Female)$/i; // Accept Male or Female, case insensitive
 
     let isValid = true; 
 
+    // 5. Set error message text color to red
     document.getElementById("fn").style.color = "Red";
     document.getElementById("ln").style.color = "Red";
     document.getElementById("pn").style.color = "Red";
     document.getElementById("gd").style.color = "Red";
     document.getElementById("eq").style.color = "Red";
 
-    //Detection firstName
+    // Detection firstName
     if (firstNameValue === '') {
         document.getElementById("fn").innerHTML = "First Name: Please enter your first name.";
         isValid = false;
